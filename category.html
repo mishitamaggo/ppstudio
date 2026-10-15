@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ParcelPlay Category Page">
+  <title>ParcelPlay · Category</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" href="images/logo/favicon.png">
+  <style>
+    .page-header {
+      padding: 140px 0 70px;
+      background: linear-gradient(135deg, #1e2d42 0%, #2c3e5a 40%, #3d5275 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(196,149,106,0.12) 0%, transparent 70%);
+    }
+    .page-header .container {
+      position: relative;
+      z-index: 2;
+    }
+    .page-header .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      color: rgba(245,240,234,0.5);
+    }
+    .page-header .breadcrumb a {
+      color: rgba(245,240,234,0.6);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .page-header .breadcrumb a:hover {
+      color: var(--copper-light);
+    }
+    .page-header .breadcrumb svg {
+      width: 14px;
+      height: 14px;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: 1rem;
+      color: #f5f0ea;
+      font-weight: 700;
+    }
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: rgba(245,240,234,0.65);
+      line-height: 1.7;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(26, 42, 58, 0.1);
+      margin-bottom: 3rem;
+    }
+    .filter-tabs {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+    .filter-tab {
+      padding: 0.5rem 1.25rem;
+      border-radius: 20px;
+      border: 1px solid rgba(26, 42, 58, 0.1);
+      background: transparent;
+      color: var(--text-color);
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .filter-tab:hover {
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+    .filter-tab.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--cream);
+    }
+    .filter-sort select {
+      padding: 0.5rem 2rem 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(26, 42, 58, 0.1);
+      background: var(--white);
+      color: var(--text-color);
+      font-family: inherit;
+      font-weight: 500;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%231a2a3a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 16px;
+    }
+    .placeholder-image {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #2c3e5a, #3d5275);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .placeholder-image svg {
+      width: 64px;
+      height: 64px;
+      stroke: rgba(196,149,106,0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-text">Parcel<span>Play</span></div>
+      </a>
+      
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="category.html?cat=gift-hampers" class="nav-link">Gift Hampers</a>
+        <a href="category.html?cat=pr-boxes" class="nav-link">PR Boxes</a>
+        <a href="category.html?cat=food-packaging" class="nav-link">Food Packaging</a>
+        <a href="category.html?cat=apparel-packaging" class="nav-link">Apparel</a>
+        <a href="category.html?cat=jewelry-packaging" class="nav-link">Jewelry</a>
+        <a href="category.html?cat=brand-tags" class="nav-link">Brand Tags</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-cart" id="cartBtn" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <div class="page-header" id="pageHeader">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span id="breadcrumbCategory">Category</span>
+      </div>
+      <h1 id="categoryTitle">Category Title</h1>
+      <p id="categorySubtitle">Category Subtitle</p>
+    </div>
+  </div>
+
+  <!-- ===== PRODUCTS LISTING ===== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="filter-bar">
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="new">New</button>
+          <button class="filter-tab" data-filter="popular">Popular</button>
+          <button class="filter-tab" data-filter="eco">Eco-Friendly</button>
+        </div>
+        <div class="filter-sort">
+          <select id="sortSelect">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products-grid stagger-children" id="productsGrid">
+        <!-- Products will be injected here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-content">
+          <h2>Ready to Transform<br>Your Packaging Game?</h2>
+          <p>Join 500+ brands who chose to stand out. Get a free consultation and see how we can make your packaging unforgettable.</p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-primary btn-lg">Get Free Consultation</a>
+            <a href="index.html#categories" class="btn btn-white btn-lg">Browse All Categories</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text">Parcel<span>Play</span></div>
+          <p>Crafting exceptional packaging experiences for ambitious brands. We believe every unboxing should be a moment worth remembering.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.44l1.4-5.96s-.36-.72-.36-1.78c0-1.66.97-2.9 2.17-2.9 1.02 0 1.52.77 1.52 1.7 0 1.03-.66 2.58-1 4.01-.28 1.2.6 2.18 1.78 2.18 2.13 0 3.77-2.25 3.77-5.49 0-2.87-2.06-4.88-5-4.88-3.41 0-5.42 2.56-5.42 5.2 0 1.03.4 2.13.89 2.73a.36.36 0 0 1 .08.34l-.33 1.36c-.05.22-.18.27-.4.16-1.5-.7-2.43-2.88-2.43-4.64 0-3.78 2.75-7.25 7.92-7.25 4.16 0 7.4 2.97 7.4 6.93 0 4.14-2.6 7.46-6.23 7.46-1.22 0-2.36-.63-2.75-1.38l-.75 2.85c-.27 1.04-1 2.35-1.49 3.15A12 12 0 1 0 12 0z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.75 3.75 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77A1.75 1.75 0 0 0 0 1.73v20.54A1.75 1.75 0 0 0 1.77 24h20.45A1.75 1.75 0 0 0 24 22.27V1.73A1.75 1.75 0 0 0 22.22 0z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="category.html?cat=gift-hampers">Gift Hampers</a></li>
+            <li><a href="category.html?cat=pr-boxes">PR Boxes</a></li>
+            <li><a href="category.html?cat=food-packaging">Food Packaging</a></li>
+            <li><a href="category.html?cat=apparel-packaging">Apparel Packaging</a></li>
+            <li><a href="category.html?cat=jewelry-packaging">Jewelry Packaging</a></li>
+            <li><a href="category.html?cat=brand-tags">Brand Tags</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="index.html#process">How It Works</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Bulk Orders</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ParcelPlay. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart (<span id="cartItemCount">0</span>)</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <h4>Your cart is empty</h4>
+        <p>Explore our collections to find the perfect packaging for your brand.</p>
+      </div>
+      <div id="cartItems"></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Subtotal</span>
+        <span class="cart-total-value" id="cartTotal">₹0</span>
+      </div>
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+    </div>
+  </div>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <span id="toastMessage">Added to cart!</span>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    const CATEGORIES = {
+      'gift-hampers': {
+        title: 'Gift Hampers',
+        subtitle: 'Luxurious curated hamper packaging for weddings, festivals & corporate gifting that leaves lasting impressions.',
+        products: [
+          { id: 'bridal-luxe-hamper', name: 'Bridal Luxe Hamper', price: 2499, moq: 25, badge: 'Popular', badgeClass: 'badge-popular', image: 'images/products/gift-hampers/gift-hamper-1.png', description: 'Rose gold hexagonal box with velvet lining, tulle wrapping & gold accents. Perfect for bridal trousseau gifting.' },
+          { id: 'noir-tower-hamper', name: 'Noir Tower Hamper', price: 3299, moq: 15, badge: 'New', badgeClass: 'badge-new', image: 'images/products/gift-hampers/gift-hamper-2.png', description: '3-tier matte black stackable box with brass spine & emerald velvet ribbon. Ideal for premium corporate gifts.' },
+          { id: 'rustic-crate-hamper', name: 'Rustic Crate Hamper', price: 1899, moq: 20, badge: 'Eco', badgeClass: 'badge-eco', image: 'images/products/gift-hampers/gift-hamper-3.png', description: 'Wooden crate with sliding glass panel, eucalyptus decoration & custom stamps. Artisan charm meets luxury.' }
+        ]
+      },
+      'pr-boxes': {
+        title: 'PR Boxes',
+        subtitle: 'Show-stopping unboxing experiences designed for influencer marketing, product launches & brand activations.',
+        products: [
+          { id: 'influencer-pr-box', name: 'Influencer Luxe PR Box', price: 4599, moq: 10, badge: 'Popular', badgeClass: 'badge-popular', image: 'images/products/pr-boxes/pr-box-1.png', description: 'Navy magnetic box with velvet compartments, gold foil embossing & tissue paper flowers. Built for Instagram.' },
+          { id: 'tech-launch-box', name: 'Tech Launch Box', price: 5999, moq: 10, badge: 'New', badgeClass: 'badge-new', image: 'images/products/pr-boxes/pr-box-2.png', description: 'White briefcase-style box with LED accent rim, custom foam cutouts & digital screen in lid.' },
+          { id: 'botanical-pr-box', name: 'Botanical Wellness Box', price: 3499, moq: 15, badge: 'Eco', badgeClass: 'badge-eco', image: 'images/products/pr-boxes/pr-box-3.png', description: 'Seed-paper wrapped box with bamboo containers, pressed flowers & handbound journal. 100% sustainable.' }
+        ]
+      },
+      'food-packaging': {
+        title: 'Food Packaging',
+        subtitle: 'Artisan-grade packaging for bakeries, chocolatiers & gourmet food brands that taste as good as they look.',
+        products: [
+          { id: 'patisserie-box', name: 'Patisserie Blush Box', price: 699, moq: 50, badge: 'Popular', badgeClass: 'badge-popular', image: 'images/products/food-packaging/food-packaging-1.png', description: 'Dusty rose pastry box with die-cut window, gold foil stamping & satin ribbon. For macarons & fine pastries.' },
+          { id: 'gourmet-meal-kit', name: 'Gourmet Meal Kit Box', price: 1199, moq: 30, badge: 'New', badgeClass: 'badge-new', image: 'images/products/food-packaging/food-packaging-2.png', description: 'Compartmentalized kraft box with botanical print wax paper, recipe card slot & herb sachets.' },
+          { id: 'copper-prism-choco', name: 'Copper Prism Chocolate Box', price: 899, moq: 50, badge: 'New', badgeClass: 'badge-new', image: 'images/products/food-packaging/food-packaging-3.png', description: 'Triangular prism with embossed copper finish, sliding drawer mechanism & individual foil wrapping.' }
+        ]
+      },
+      'apparel-packaging': {
+        title: 'Apparel Packaging',
+        subtitle: 'Premium fashion-forward packaging for clothing & lifestyle brands that make getting dressed start with the box.',
+        products: [
+          { id: 'noir-fashion-box', name: 'Noir Fashion Box', price: 1799, moq: 20, badge: 'Popular', badgeClass: 'badge-popular', image: 'images/products/apparel-packaging/apparel-packaging-1.png', description: 'Matte black rigid box with debossed logo, branded tissue paper, wax seal & rose gold foil details.' },
+          { id: 'urban-canvas-tote', name: 'Urban Canvas Tote Pack', price: 1299, moq: 30, badge: 'Eco', badgeClass: 'badge-eco', image: 'images/products/apparel-packaging/apparel-packaging-2.png', description: 'Reusable canvas packaging with screen-printed graphics, magnetic snap & lookbook zine.' },
+          { id: 'champagne-hatbox', name: 'Champagne Oval Hatbox', price: 2299, moq: 15, badge: 'New', badgeClass: 'badge-new', image: 'images/products/apparel-packaging/apparel-packaging-3.png', description: 'Oval hatbox in champagne gold with silk ribbon handle, satin lining & lavender sachet.' }
+        ]
+      },
+      'jewelry-packaging': {
+        title: 'Jewelry Packaging',
+        subtitle: 'Exquisite boxes and cases for fine jewelry & accessories that make the presentation as precious as the piece.',
+        products: [
+          { id: 'midnight-velvet-ring', name: 'Midnight Velvet Ring Box', price: 1899, moq: 20, badge: 'Popular', badgeClass: 'badge-popular', image: 'images/products/jewelry-packaging/jewelry-packaging-1.png', description: 'Octagonal deep blue velvet box with gold filigree, spring-hinge & rotating cushion platform.' },
+          { id: 'artisan-wood-set', name: 'Artisan Wood Jewelry Set', price: 2499, moq: 15, badge: 'New', badgeClass: 'badge-new', image: 'images/products/jewelry-packaging/jewelry-packaging-1.png', description: 'Nested wooden boxes with burnt wood pattern & turquoise resin inlay, raw linen cushions.' },
+          { id: 'scandi-book-box', name: 'Scandinavian Book Box', price: 1599, moq: 25, badge: 'New', badgeClass: 'badge-new', image: 'images/products/jewelry-packaging/jewelry-packaging-1.png', description: 'Slim matte white book-style box with blind embossing, grey microsuede interior & mirror card.' }
+        ]
+      },
+      'brand-tags': {
+        title: 'Brand Tags',
+        subtitle: 'Custom hang tags, labels & stickers that complete your brand identity with that perfect finishing touch.',
+        products: [
+          { id: 'luxe-hang-tags', name: 'Luxe Foil Hang Tags', price: 15, moq: 200, badge: 'Popular', badgeClass: 'badge-popular', image: '', description: 'Premium thick card stock with gold/silver foil stamping, custom shapes & cotton string.' },
+          { id: 'eco-kraft-tags', name: 'Eco Kraft Tag Collection', price: 8, moq: 500, badge: 'Eco', badgeClass: 'badge-eco', image: '', description: 'Recycled kraft paper tags with soy ink printing, seed paper option & jute twine.' },
+          { id: 'holographic-stickers', name: 'Holographic Sticker Set', price: 12, moq: 300, badge: 'New', badgeClass: 'badge-new', image: '', description: 'Custom die-cut holographic stickers with rainbow shift effect & premium adhesive backing.' }
+        ]
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      let cat = urlParams.get('cat');
+      
+      // Default to gift-hampers if invalid or not provided
+      if (!cat || !CATEGORIES[cat]) {
+        cat = 'gift-hampers';
+      }
+
+      const categoryData = CATEGORIES[cat];
+      let currentProducts = [...categoryData.products];
+      
+      // Update page content
+      document.title = `ParcelPlay · ${categoryData.title}`;
+      document.getElementById('breadcrumbCategory').textContent = categoryData.title;
+      document.getElementById('categoryTitle').textContent = categoryData.title;
+      document.getElementById('categorySubtitle').textContent = categoryData.subtitle;
+
+      // Highlight active nav link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `category.html?cat=${cat}`) {
+          link.classList.add('active');
+        }
+      });
+
+      const productsGrid = document.getElementById('productsGrid');
+
+      function renderProducts(products) {
+        productsGrid.innerHTML = '';
+        if (products.length === 0) {
+          productsGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-color);">No products found matching these criteria.</p>';
+          return;
+        }
+
+        products.forEach((product, index) => {
+          let imageHTML = '';
+          if (product.image) {
+            imageHTML = `<img src="${product.image}" alt="${product.name}" loading="lazy">`;
+          } else {
+            imageHTML = `
+              <div class="placeholder-image">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                  <line x1="7" y1="7" x2="7.01" y2="7"/>
+                </svg>
+              </div>`;
+          }
+
+          const productCard = document.createElement('div');
+          productCard.className = 'product-card fade-in-up';
+          productCard.style.animationDelay = `${index * 0.1}s`;
+          
+          productCard.innerHTML = `
+            <div class="product-card-image">
+              ${imageHTML}
+              <span class="product-badge ${product.badgeClass}">${product.badge}</span>
+              <div class="product-quick-actions">
+                <button class="quick-action-btn" title="Quick View" onclick="viewProduct('${product.id}')">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+                <button class="quick-action-btn add-to-cart-btn" title="Add to Cart" onclick="addToCart('${product.id}', '${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </button>
+                <button class="quick-action-btn" title="Wishlist">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-category-tag">${categoryData.title}</div>
+              <h3>${product.name}</h3>
+              <p class="description">${product.description}</p>
+              <div class="product-pricing">
+                <div class="product-price">₹${product.price.toLocaleString('en-IN')} <span class="unit">${cat === 'brand-tags' ? '/unit' : '/box'}</span></div>
+                <span class="product-moq">MOQ: ${product.moq} pcs</span>
+              </div>
+            </div>
+          `;
+          productsGrid.appendChild(productCard);
+        });
+      }
+
+      // Initial render
+      renderProducts(currentProducts);
+
+      // Filtering logic
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          filterTabs.forEach(t => t.classList.remove('active'));
+          e.target.classList.add('active');
+          
+          const filter = e.target.getAttribute('data-filter');
+          
+          if (filter === 'all') {
+            currentProducts = [...categoryData.products];
+          } else if (filter === 'new') {
+            currentProducts = categoryData.products.filter(p => p.badge === 'New');
+          } else if (filter === 'popular') {
+            currentProducts = categoryData.products.filter(p => p.badge === 'Popular');
+          } else if (filter === 'eco') {
+            currentProducts = categoryData.products.filter(p => p.badge === 'Eco');
+          }
+          
+          sortProducts(); // Apply current sort
+        });
+      });
+
+      // Sorting logic
+      const sortSelect = document.getElementById('sortSelect');
+      sortSelect.addEventListener('change', sortProducts);
+
+      function sortProducts() {
+        const sortValue = sortSelect.value;
+        
+        let sorted = [...currentProducts];
+        if (sortValue === 'price-low') {
+          sorted.sort((a, b) => a.price - b.price);
+        } else if (sortValue === 'price-high') {
+          sorted.sort((a, b) => b.price - a.price);
+        } else {
+          // featured - original order
+          sorted = [...currentProducts];
+        }
+        
+        renderProducts(sorted);
+      }
+    });
+
+    // Mock functions to avoid errors if app.js is not loaded properly
+    if (typeof addToCart !== 'function') {
+      window.addToCart = function(id, name, price, image) {
+        console.log('Add to cart mock:', id, name, price);
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toastMessage');
+        if (toast && toastMsg) {
+          toastMsg.textContent = `${name} added to cart`;
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+      };
+    }
+    
+    if (typeof viewProduct !== 'function') {
+      window.viewProduct = function(id) {
+        console.log('View product mock:', id);
+      };
+    }
+  </script>
+</body>
+</html>

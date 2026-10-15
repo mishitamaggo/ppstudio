@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ParcelPlay · View product details and customize your premium packaging order.">
+  <title>Product Details · ParcelPlay</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-text">Parcel<span>Play</span></div>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="category.html?cat=gift-hampers" class="nav-link">Gift Hampers</a>
+        <a href="category.html?cat=pr-boxes" class="nav-link">PR Boxes</a>
+        <a href="category.html?cat=food-packaging" class="nav-link">Food Packaging</a>
+        <a href="category.html?cat=apparel-packaging" class="nav-link">Apparel</a>
+        <a href="category.html?cat=jewelry-packaging" class="nav-link">Jewelry</a>
+        <a href="category.html?cat=brand-tags" class="nav-link">Brand Tags</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="nav-cart" id="cartBtn" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PRODUCT DETAIL ===== -->
+  <section class="product-detail-section">
+    <div class="container">
+      <div class="breadcrumb" id="breadcrumb" style="justify-content: flex-start; margin-bottom: var(--space-2xl);"></div>
+      
+      <div class="product-detail-grid" id="productDetail">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RELATED PRODUCTS ===== -->
+  <section class="section" style="background: var(--cream);">
+    <div class="container text-center">
+      <span class="section-label">You May Also Like</span>
+      <h2 class="section-title">Related Designs</h2>
+    </div>
+    <div class="container">
+      <div class="products-grid stagger-children" id="relatedProducts"></div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-content">
+          <h2>Want This Customized<br>For Your Brand?</h2>
+          <p>Every design can be tailored with your logo, brand colors, and unique specifications. Let's create something extraordinary together.</p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-primary btn-lg">Get Custom Quote</a>
+            <a href="index.html#categories" class="btn btn-white btn-lg">Browse All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text">Parcel<span>Play</span></div>
+          <p>Crafting exceptional packaging experiences for ambitious brands.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.44l1.4-5.96s-.36-.72-.36-1.78c0-1.66.97-2.9 2.17-2.9 1.02 0 1.52.77 1.52 1.7 0 1.03-.66 2.58-1 4.01-.28 1.2.6 2.18 1.78 2.18 2.13 0 3.77-2.25 3.77-5.49 0-2.87-2.06-4.88-5-4.88-3.41 0-5.42 2.56-5.42 5.2 0 1.03.4 2.13.89 2.73a.36.36 0 0 1 .08.34l-.33 1.36c-.05.22-.18.27-.4.16-1.5-.7-2.43-2.88-2.43-4.64 0-3.78 2.75-7.25 7.92-7.25 4.16 0 7.4 2.97 7.4 6.93 0 4.14-2.6 7.46-6.23 7.46-1.22 0-2.36-.63-2.75-1.38l-.75 2.85c-.27 1.04-1 2.35-1.49 3.15A12 12 0 1 0 12 0z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.75 3.75 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77A1.75 1.75 0 0 0 0 1.73v20.54A1.75 1.75 0 0 0 1.77 24h20.45A1.75 1.75 0 0 0 24 22.27V1.73A1.75 1.75 0 0 0 22.22 0z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="category.html?cat=gift-hampers">Gift Hampers</a></li>
+            <li><a href="category.html?cat=pr-boxes">PR Boxes</a></li>
+            <li><a href="category.html?cat=food-packaging">Food Packaging</a></li>
+            <li><a href="category.html?cat=apparel-packaging">Apparel Packaging</a></li>
+            <li><a href="category.html?cat=jewelry-packaging">Jewelry Packaging</a></li>
+            <li><a href="category.html?cat=brand-tags">Brand Tags</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="index.html#process">How It Works</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Return Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ParcelPlay. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart (<span id="cartItemCount">0</span>)</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <h4>Your cart is empty</h4>
+        <p>Explore our collections to find the perfect packaging.</p>
+      </div>
+      <div id="cartItems"></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Subtotal</span>
+        <span class="cart-total-value" id="cartTotal">₹0</span>
+      </div>
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+    </div>
+  </div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <div class="toast" id="toast">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <span id="toastMessage">Added to cart!</span>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // ===== PRODUCT DATA =====
+    const ALL_PRODUCTS = {
+      'bridal-luxe-hamper': { 
+        name: 'Bridal Luxe Hamper', price: 2499, moq: 25, 
+        category: 'Gift Hampers', categorySlug: 'gift-hampers',
+        badge: 'Popular', badgeClass: 'badge-popular',
+        image: 'images/products/gift-hampers/gift-hamper-1.png',
+        description: 'Rose gold hexagonal box with velvet lining, tulle wrapping & gold accents. Perfect for bridal trousseau gifting.',
+        longDescription: 'Transform your bridal trousseau presentation with our most-loved hamper design. This stunning hexagonal box features blush-pink velvet lining, a clear acrylic display lid, and is finished with champagne tulle wrapping and a rose gold satin ribbon. Every detail has been crafted to create that unforgettable "wow" moment.',
+        features: ['Hexagonal rigid box with magnetic closure', 'Blush velvet interior lining', 'Clear acrylic display lid option', 'Rose gold satin ribbon & tulle wrap', 'Custom gold foil branding on lid', 'Includes calligraphy gift tag', 'Available in 3 sizes: S, M, L', 'Customizable color combinations']
+      },
+      'noir-tower-hamper': { 
+        name: 'Noir Tower Hamper', price: 3299, moq: 15, 
+        category: 'Gift Hampers', categorySlug: 'gift-hampers',
+        badge: 'New', badgeClass: 'badge-new',
+        image: 'images/products/gift-hampers/gift-hamper-2.png',
+        description: '3-tier matte black stackable box with brass spine & emerald velvet ribbon.',
+        longDescription: 'Make a bold statement with our Noir Tower: a modular, 3-tier gift experience. Each cylindrical tier is connected by a magnetic brass spine, creating a dramatic reveal as each level is opened. Finished with an emerald green velvet ribbon and a custom wax seal, this hamper turns any gift into an event.',
+        features: ['3-tier stackable cylindrical design', 'Matte black finish with soft-touch coating', 'Magnetic brass connecting spine', 'Emerald green velvet ribbon', 'Custom wax seal in your brand colors', 'Individual compartment dividers', 'Premium unboxing reveal experience', 'Branded outer sleeve option']
+      },
+      'rustic-crate-hamper': { 
+        name: 'Rustic Crate Hamper', price: 1899, moq: 20, 
+        category: 'Gift Hampers', categorySlug: 'gift-hampers',
+        badge: 'Eco', badgeClass: 'badge-eco',
+        image: 'images/products/gift-hampers/gift-hamper-3.png',
+        description: 'Wooden crate with sliding glass panel, eucalyptus decoration & custom stamps.',
+        longDescription: 'Where artisan charm meets luxury: our Rustic Crate combines natural wood craftsmanship with sophisticated design. The sliding glass panel lid showcases your curated items beautifully, while dried eucalyptus and custom-stamped kraft paper add a personal, handcrafted touch that customers absolutely adore.',
+        features: ['Handcrafted pine wood crate', 'Sliding tempered glass panel lid', 'Custom branded stamp on wood', 'Dried eucalyptus & botanical accents', 'Natural jute twine wrapping', 'Kraft paper compartment liners', 'Reusable as home décor piece', '100% recyclable materials']
+      },
+      'influencer-pr-box': { 
+        name: 'Influencer Luxe PR Box', price: 4599, moq: 10, 
+        category: 'PR Boxes', categorySlug: 'pr-boxes',
+        badge: 'Popular', badgeClass: 'badge-popular',
+        image: 'images/products/pr-boxes/pr-box-1.png',
+        description: 'Navy magnetic box with velvet compartments, gold foil & tissue paper flowers.',
+        longDescription: 'Designed for the Instagram age: this PR box creates unboxing content that goes viral. The deep navy exterior with gold foil embossing opens to reveal a blush pink velvet-lined interior with custom compartments. Tissue paper flowers, personalized note cards, and confetti create a multi-sensory opening experience.',
+        features: ['Rigid navy box with magnetic closure', 'Gold foil embossed branding', 'Blush velvet multi-compartment insert', 'Tissue paper flower arrangement', 'Personalized note card slot', 'Confetti/filler packet included', 'Social-media optimized dimensions', 'Custom insert layout available']
+      },
+      'tech-launch-box': { 
+        name: 'Tech Launch Box', price: 5999, moq: 10, 
+        category: 'PR Boxes', categorySlug: 'pr-boxes',
+        badge: 'New', badgeClass: 'badge-new',
+        image: 'images/products/pr-boxes/pr-box-2.png',
+        description: 'White briefcase-style box with LED rim, custom foam cutouts & embedded digital screen.',
+        longDescription: 'The future of product launches is here. Our Tech Launch Box features a sleek white briefcase design with a hidden LED strip around the rim that illuminates upon opening. Inside, precision-cut foam cradles your products perfectly, while an optional 5" LCD screen in the lid can play your brand video automatically.',
+        features: ['Briefcase-style with hidden magnetic clasp', 'LED accent strip around rim', 'Custom precision-cut foam inserts', 'Optional 5" LCD screen in lid', 'Rechargeable battery (optional)', 'Branded merchandise compartments', 'Matte white soft-touch finish', 'Premium carry handle']
+      },
+      'botanical-pr-box': { 
+        name: 'Botanical Wellness Box', price: 3499, moq: 15, 
+        category: 'PR Boxes', categorySlug: 'pr-boxes',
+        badge: 'Eco', badgeClass: 'badge-eco',
+        image: 'images/products/pr-boxes/pr-box-3.png',
+        description: 'Seed-paper wrapped box with bamboo containers, pressed flowers & handbound journal.',
+        longDescription: 'For brands that care about the planet as much as their presentation. This fully sustainable PR box uses seed paper wrapping (plantable!), bamboo storage containers, and pressed flower decorations. The included handbound journal and herbal tea sachets create a holistic brand experience that tells your sustainability story.',
+        features: ['Seed paper wrapping (plantable)', 'Bamboo storage containers', 'Pressed flower decorations', 'Cotton drawstring closure', 'Handbound recycled paper journal', 'Herbal tea sachet inclusions', 'Soy-based ink printing', '100% biodegradable materials']
+      },
+      'patisserie-box': { 
+        name: 'Patisserie Blush Box', price: 699, moq: 50, 
+        category: 'Food Packaging', categorySlug: 'food-packaging',
+        badge: 'Popular', badgeClass: 'badge-popular',
+        image: 'images/products/food-packaging/food-packaging-1.png',
+        description: 'Dusty rose pastry box with die-cut window, gold foil stamping & satin ribbon.',
+        longDescription: 'Elevate your bakery brand with our bestselling pastry box. The dusty rose colorway with gold foil stamping instantly communicates premium quality. A die-cut window lets your creations peek through enticingly, while the satin ribbon adds that final touch of elegance that customers love to photograph.',
+        features: ['350gsm premium card stock', 'Die-cut display window', 'Gold foil logo stamping', 'Food-safe grease-proof lining', 'Satin ribbon closure', 'Matching tissue paper sheets', 'Available in 4/6/12 piece sizes', 'Custom colorway options']
+      },
+      'gourmet-meal-kit': { 
+        name: 'Gourmet Meal Kit Box', price: 1199, moq: 30, 
+        category: 'Food Packaging', categorySlug: 'food-packaging',
+        badge: 'New', badgeClass: 'badge-new',
+        image: 'images/products/food-packaging/food-packaging-2.png',
+        description: 'Compartmentalized kraft box with botanical print wax paper, recipe card slot & herb sachets.',
+        longDescription: 'Perfect for meal kit brands, cooking subscription boxes, or gourmet food gifting. This sophisticated kraft box features individually printed wax paper wrappings with vintage botanical illustrations, a dedicated recipe card slot, and custom holder sections for bottles and sachets. Rustic meets refined.',
+        features: ['Corrugated kraft outer box', 'Individual compartment dividers', 'Botanical wax paper wrappings', 'Dedicated recipe card slot', 'Custom bottle/jar holders', 'Herb sachet pouches included', 'Temperature-safe insulation option', 'Branded tape & labels']
+      },
+      'copper-prism-choco': { 
+        name: 'Copper Prism Chocolate Box', price: 899, moq: 50, 
+        category: 'Food Packaging', categorySlug: 'food-packaging',
+        badge: 'New', badgeClass: 'badge-new',
+        image: 'images/products/food-packaging/food-packaging-3.png',
+        description: 'Triangular prism with embossed copper finish, sliding drawer mechanism.',
+        longDescription: 'Break the mold, literally. This triangular prism-shaped chocolate box immediately stands out on any shelf or gift table. The metallic copper exterior with geometric embossing feels luxurious to the touch, while the sliding drawer mechanism creates an elegant reveal of your artisan chocolates inside.',
+        features: ['Unique triangular prism shape', 'Metallic copper embossed finish', 'Sliding drawer mechanism', 'Individual chocolate cavity tray', 'Food-safe inner lining', 'Textured foil paper wraps', 'Available in 6/9/12 piece', 'Custom flavor label inserts']
+      },
+      'noir-fashion-box': { 
+        name: 'Noir Fashion Box', price: 1799, moq: 20, 
+        category: 'Apparel Packaging', categorySlug: 'apparel-packaging',
+        badge: 'Popular', badgeClass: 'badge-popular',
+        image: 'images/products/apparel-packaging/apparel-packaging-1.png',
+        description: 'Matte black rigid box with debossed logo, branded tissue paper & wax seal.',
+        longDescription: 'The gold standard of fashion packaging. Our Noir Fashion Box transforms unboxing into a brand ritual. The matte black finish with your debossed logo creates an understated luxury feel, while branded tissue paper with a wax seal adds layers of anticipation. Rose gold foil details throughout complete the premium experience.',
+        features: ['Rigid matte black box', 'Custom debossed logo on lid', 'Branded tissue paper sheets', 'Custom wax seal closure', 'Cotton dust bag included', 'Rose gold foil accent details', 'Thank you card & care booklet', 'Sizes: Shirt, Dress, Accessory']
+      },
+      'urban-canvas-tote': { 
+        name: 'Urban Canvas Tote Pack', price: 1299, moq: 30, 
+        category: 'Apparel Packaging', categorySlug: 'apparel-packaging',
+        badge: 'Eco', badgeClass: 'badge-eco',
+        image: 'images/products/apparel-packaging/apparel-packaging-2.png',
+        description: 'Reusable canvas packaging with screen-printed graphics & lookbook zine.',
+        longDescription: 'Packaging that becomes part of your product. This reusable canvas tote doubles as a bag your customers will actually use, extending your brand visibility beyond the purchase. Screen-printed with bold custom graphics, it includes a magnetic snap closure, sticker sheet, and lookbook zine.',
+        features: ['Heavy-duty canvas tote bag', 'Custom screen-printed graphics', 'Magnetic snap closure', 'Printed recycled inner wrapping', 'Brand sticker sheet included', 'Lookbook zine pocket', 'Reusable, zero waste', 'Available in 5 canvas colors']
+      },
+      'champagne-hatbox': { 
+        name: 'Champagne Oval Hatbox', price: 2299, moq: 15, 
+        category: 'Apparel Packaging', categorySlug: 'apparel-packaging',
+        badge: 'New', badgeClass: 'badge-new',
+        image: 'images/products/apparel-packaging/apparel-packaging-3.png',
+        description: 'Oval hatbox in champagne gold with silk ribbon handle & lavender sachet.',
+        longDescription: 'Inspired by vintage Parisian hatboxes, this oval packaging in champagne gold radiates timeless elegance. The silk ribbon handle and satin-lined interior make it feel like opening a treasure chest. The included lavender sachet adds a sensory dimension, and the box itself becomes a cherished keepsake.',
+        features: ['Oval hatbox construction', 'Champagne gold exterior finish', 'Silk ribbon carry handle', 'Pink satin interior lining', 'Tissue paper layering', 'Lavender sachet included', 'Monogrammed card option', 'Ideal for lingerie & delicates']
+      },
+      'midnight-velvet-ring': { 
+        name: 'Midnight Velvet Ring Box', price: 1899, moq: 20, 
+        category: 'Jewelry Packaging', categorySlug: 'jewelry-packaging',
+        badge: 'Popular', badgeClass: 'badge-popular',
+        image: 'images/products/jewelry-packaging/jewelry-packaging-1.png',
+        description: 'Octagonal deep blue velvet box with gold filigree & rotating cushion platform.',
+        longDescription: 'Make the moment magical. Our Midnight Velvet Ring Box features an octagonal shape in deep midnight blue velvet with intricate gold filigree detailing on the lid. The spring-hinge opening reveals a rotating cushion platform that presents the ring from every angle: perfect for proposals and luxury jewelry brands.',
+        features: ['Octagonal velvet exterior', 'Gold filigree lid detailing', 'Spring-hinge smooth opening', 'Rotating cushion display platform', 'Matching velvet storage pouch', 'Authentication card & envelope', 'Polishing cloth included', 'Gift-ready outer sleeve']
+      },
+      'artisan-wood-set': { 
+        name: 'Artisan Wood Jewelry Set', price: 2499, moq: 15, 
+        category: 'Jewelry Packaging', categorySlug: 'jewelry-packaging',
+        badge: 'New', badgeClass: 'badge-new',
+        image: 'images/products/jewelry-packaging/jewelry-packaging-1.png',
+        description: 'Nested wooden boxes with burnt wood pattern & turquoise resin inlay.',
+        longDescription: 'For jewelry brands with an artisan soul. This set of nested wooden boxes features a stunning burnt wood pattern with turquoise resin inlay running through each piece. Raw linen cushions cradle each jewelry piece, while a handwritten artist note adds a personal touch that mass-produced boxes can never match.',
+        features: ['Set of 3 nested wooden boxes', 'Burnt wood (shou sugi ban) pattern', 'Turquoise resin inlay detail', 'Raw linen display cushions', 'Ring, earring & necklace slots', 'Handwritten artist note included', 'Dried wildflower accents', 'Organic wood grain finish']
+      },
+      'scandi-book-box': { 
+        name: 'Scandinavian Book Box', price: 1599, moq: 25, 
+        category: 'Jewelry Packaging', categorySlug: 'jewelry-packaging',
+        badge: 'New', badgeClass: 'badge-new',
+        image: 'images/products/jewelry-packaging/jewelry-packaging-1.png',
+        description: 'Slim matte white book-style box with blind embossing & grey microsuede.',
+        longDescription: 'Clean lines, quiet luxury. Inspired by Scandinavian minimalism, this slim book-style box opens to reveal geometric cutouts cradling your jewelry pieces against soft grey microsuede. The blind embossed logo creates a subtle branding moment, while the included mirror card adds a thoughtful functional detail.',
+        features: ['Book-style magnetic closure', 'Matte white rigid construction', 'Blind embossed custom logo', 'Grey microsuede interior', 'Geometric precision cutouts', 'Built-in mirror card', 'Care guide booklet slot', 'Minimal Scandinavian aesthetic']
+      }
+    };
+
+    // Get product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    const product = ALL_PRODUCTS[productId];
+
+    if (product) {
+      // Update page title
+      document.title = `${product.name} · ParcelPlay`;
+      
+      // Update breadcrumb
+      document.getElementById('breadcrumb').innerHTML = `
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <a href="category.html?cat=${product.categorySlug}">${product.category}</a>
+        <span class="sep">›</span>
+        <span style="color: var(--copper-light);">${product.name}</span>
+      `;
+
+      // Render product detail
+      document.getElementById('productDetail').innerHTML = `
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img src="${product.image}" alt="${product.name}" id="mainProductImage">
+          </div>
+        </div>
+        
+        <div class="product-detail-info">
+          <div class="product-category-tag">${product.category}</div>
+          <h1>${product.name}</h1>
+          
+          <div class="rating">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="count">(${Math.floor(Math.random() * 40 + 12)} reviews)</span>
+          </div>
+
+          <div class="product-detail-price">
+            ₹${product.price.toLocaleString('en-IN')} <span class="unit">per piece</span>
+          </div>
+
+          <p class="product-detail-description">${product.longDescription}</p>
+
+          <ul class="product-features-list">
+            ${product.features.map(f => `
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                ${f}
+              </li>
+            `).join('')}
+          </ul>
+
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <span style="font-size: 0.9rem; color: var(--text-muted);">MOQ: <strong style="color: var(--navy);">${product.moq} pieces</strong></span>
+            <span class="product-badge ${product.badgeClass}" style="position: static;">${product.badge}</span>
+          </div>
+
+          <div class="product-quantity">
+            <span style="font-family: var(--font-heading); font-weight: 500;">Quantity:</span>
+            <div class="quantity-selector">
+              <button onclick="changeQty(-1)">−</button>
+              <div class="qty-value" id="qtyValue">${product.moq}</div>
+              <button onclick="changeQty(1)">+</button>
+            </div>
+          </div>
+
+          <div class="product-detail-actions">
+            <button class="btn btn-primary btn-lg" onclick="addToCart('${productId}', '${product.name}', ${product.price}, '${product.image}'); showToast('${product.name} added to cart!');" style="flex:1;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              Add to Cart
+            </button>
+            <a href="contact.html" class="btn btn-outline-copper btn-lg">
+              Get Custom Quote
+            </a>
+          </div>
+
+          <div style="background: var(--cream); border-radius: var(--radius-md); padding: 1.2rem; margin-top: 1rem;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <span style="font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; color: var(--navy);">Free shipping on orders above ₹10,000</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span style="font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; color: var(--navy);">Quality guaranteed or full refund</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Render related products
+      const related = Object.entries(ALL_PRODUCTS)
+        .filter(([id]) => id !== productId)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+
+      document.getElementById('relatedProducts').innerHTML = related.map(([id, p]) => `
+        <div class="product-card fade-in-up">
+          <div class="product-card-image">
+            ${p.image ? `<img src="${p.image}" alt="${p.name}" loading="lazy">` : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#2c3e5a,#3d5275);display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(196,149,106,0.5)" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>`}
+            <span class="product-badge ${p.badgeClass}">${p.badge}</span>
+            <div class="product-quick-actions">
+              <button class="quick-action-btn" title="View" onclick="viewProduct('${id}')"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+              <button class="quick-action-btn" title="Add to Cart" onclick="addToCart('${id}', '${p.name}', ${p.price}, '${p.image}')"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+            </div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-category-tag">${p.category}</div>
+            <h3>${p.name}</h3>
+            <p class="description">${p.description}</p>
+            <div class="product-pricing">
+              <div class="product-price">₹${p.price.toLocaleString('en-IN')} <span class="unit">/piece</span></div>
+              <span class="product-moq">MOQ: ${p.moq} pcs</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+    } else {
+      // Product not found
+      document.getElementById('productDetail').innerHTML = `
+        <div style="text-align: center; padding: 4rem 0; grid-column: 1/-1;">
+          <h2 style="font-family: var(--font-display); color: var(--navy); margin-bottom: 1rem;">Product Not Found</h2>
+          <p style="color: var(--text-muted); margin-bottom: 2rem;">The product you're looking for doesn't exist or has been removed.</p>
+          <a href="index.html" class="btn btn-primary">Back to Home</a>
+        </div>
+      `;
+    }
+
+    // Quantity change
+    let currentQty = product ? product.moq : 1;
+    function changeQty(delta) {
+      const moq = product ? product.moq : 1;
+      currentQty = Math.max(moq, currentQty + (delta * (moq <= 10 ? 1 : 5)));
+      document.getElementById('qtyValue').textContent = currentQty;
+    }
+  </script>
+</body>
+</html>

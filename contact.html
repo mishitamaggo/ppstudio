@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with ParcelPlay for custom packaging quotes, design consultations, and bulk orders.">
+  <title>Contact Us · ParcelPlay</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    .contact-section {
+      padding: calc(var(--header-height) + var(--space-4xl)) 0 var(--space-5xl);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-4xl);
+      align-items: start;
+    }
+    .contact-info {
+      padding-top: var(--space-xl);
+    }
+    .contact-info h1 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: var(--space-md);
+      line-height: 1.2;
+    }
+    .contact-info > p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-3xl);
+    }
+    .contact-method {
+      display: flex;
+      gap: var(--space-lg);
+      padding: var(--space-xl) 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .contact-method:last-of-type {
+      border-bottom: none;
+    }
+    .contact-method-icon {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-normal);
+    }
+    .contact-method:hover .contact-method-icon {
+      background: var(--copper);
+    }
+    .contact-method-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--copper);
+      transition: stroke var(--transition-normal);
+    }
+    .contact-method:hover .contact-method-icon svg {
+      stroke: white;
+    }
+    .contact-method h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .contact-method p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .contact-method a {
+      color: var(--copper);
+      font-weight: 500;
+    }
+    .contact-method a:hover {
+      color: var(--copper-dark);
+    }
+
+    /* Form Styles */
+    .contact-form-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-3xl);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-light);
+    }
+    .contact-form-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: var(--space-sm);
+    }
+    .contact-form-card > p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-2xl);
+    }
+    .form-group {
+      margin-bottom: var(--space-xl);
+    }
+    .form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .form-group label .required {
+      color: #e74c3c;
+    }
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      background: var(--off-white);
+      transition: all var(--transition-fast);
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: var(--copper);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(196,149,106,0.1);
+    }
+    .form-input::placeholder {
+      color: var(--text-muted);
+    }
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+    select.form-input {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a8aa0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+    .form-submit-wrapper {
+      margin-top: var(--space-xl);
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: var(--space-3xl);
+    }
+    .success-message.show {
+      display: block;
+    }
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--sage), #7db87d);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-xl);
+      animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes scaleIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    .success-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: white;
+    }
+    .success-message h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: var(--space-md);
+    }
+    .success-message p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-text">Parcel<span>Play</span></div>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="category.html?cat=gift-hampers" class="nav-link">Gift Hampers</a>
+        <a href="category.html?cat=pr-boxes" class="nav-link">PR Boxes</a>
+        <a href="category.html?cat=food-packaging" class="nav-link">Food Packaging</a>
+        <a href="category.html?cat=apparel-packaging" class="nav-link">Apparel</a>
+        <a href="category.html?cat=jewelry-packaging" class="nav-link">Jewelry</a>
+        <a href="category.html?cat=brand-tags" class="nav-link">Brand Tags</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="nav-cart" id="cartBtn" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Left: Contact Info -->
+        <div class="contact-info">
+          <span class="section-label" style="justify-content: flex-start;">Get In Touch</span>
+          <h1>Let's Create<br>Something <span style="color: var(--copper); font-style: italic;">Beautiful</span></h1>
+          <p>Whether you need a custom quote, design consultation, or just want to explore possibilities, we'd love to hear from you.</p>
+
+
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Call Us</h4>
+              <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+              <p>Mon–Sat, 10AM–7PM IST</p>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Visit Us</h4>
+              <p>ParcelPlay Studio</p>
+              <p>Bandra West, Mumbai, India</p>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17.5 6.5L12 2 6.5 6.5"/><path d="M22 12c0 5.5-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2"/><path d="M22 2L12 12"/></svg>
+            </div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/919876543210">Chat with us on WhatsApp</a></p>
+              <p>Quick responses, file sharing</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form-card">
+          <div id="formContent">
+            <h2>Request a Free Quote</h2>
+            <p>Fill in the details and our packaging consultant will get back to you within 24 hours.</p>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Full Name <span class="required">*</span></label>
+                  <input type="text" class="form-input" placeholder="John Doe" required id="contactName">
+                </div>
+                <div class="form-group">
+                  <label>Business Name</label>
+                  <input type="text" class="form-input" placeholder="Your Brand Name" id="contactBusiness">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Email <span class="required">*</span></label>
+                  <input type="email" class="form-input" placeholder="hello@yourbrand.com" required id="contactEmail">
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="tel" class="form-input" placeholder="+91 98765 43210" id="contactPhone">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Packaging Category <span class="required">*</span></label>
+                <select class="form-input" required id="contactCategory">
+                  <option value="" disabled selected>Select a category</option>
+                  <option value="gift-hampers">Gift Hampers</option>
+                  <option value="pr-boxes">PR Boxes</option>
+                  <option value="food-packaging">Food Packaging</option>
+                  <option value="apparel-packaging">Apparel Packaging</option>
+                  <option value="jewelry-packaging">Jewelry Packaging</option>
+                  <option value="brand-tags">Brand Tags</option>
+                  <option value="custom">Custom / Multiple Categories</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Estimated Quantity</label>
+                  <select class="form-input" id="contactQuantity">
+                    <option value="" disabled selected>Select quantity range</option>
+                    <option value="10-50">10 – 50 pieces</option>
+                    <option value="50-100">50 – 100 pieces</option>
+                    <option value="100-500">100 – 500 pieces</option>
+                    <option value="500-1000">500 – 1,000 pieces</option>
+                    <option value="1000+">1,000+ pieces</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Budget Range</label>
+                  <select class="form-input" id="contactBudget">
+                    <option value="" disabled selected>Select budget</option>
+                    <option value="under-25k">Under ₹25,000</option>
+                    <option value="25k-50k">₹25,000 – ₹50,000</option>
+                    <option value="50k-1l">₹50,000 – ₹1,00,000</option>
+                    <option value="1l-5l">₹1,00,000 – ₹5,00,000</option>
+                    <option value="5l+">₹5,00,000+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Tell us about your project</label>
+                <textarea class="form-input" placeholder="Describe your packaging needs, brand aesthetic, timeline, and any specific requirements..." id="contactMessage"></textarea>
+              </div>
+
+              <div class="form-submit-wrapper">
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                  Send Quote Request
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="success-message" id="successMessage">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Quote Request Sent!</h3>
+            <p>Thank you for reaching out. Our packaging consultant will review your requirements and get back to you within 24 hours with a detailed proposal.</p>
+            <a href="index.html" class="btn btn-primary">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text">Parcel<span>Play</span></div>
+          <p>Crafting exceptional packaging experiences for ambitious brands.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.44l1.4-5.96s-.36-.72-.36-1.78c0-1.66.97-2.9 2.17-2.9 1.02 0 1.52.77 1.52 1.7 0 1.03-.66 2.58-1 4.01-.28 1.2.6 2.18 1.78 2.18 2.13 0 3.77-2.25 3.77-5.49 0-2.87-2.06-4.88-5-4.88-3.41 0-5.42 2.56-5.42 5.2 0 1.03.4 2.13.89 2.73a.36.36 0 0 1 .08.34l-.33 1.36c-.05.22-.18.27-.4.16-1.5-.7-2.43-2.88-2.43-4.64 0-3.78 2.75-7.25 7.92-7.25 4.16 0 7.4 2.97 7.4 6.93 0 4.14-2.6 7.46-6.23 7.46-1.22 0-2.36-.63-2.75-1.38l-.75 2.85c-.27 1.04-1 2.35-1.49 3.15A12 12 0 1 0 12 0z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.75 3.75 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77A1.75 1.75 0 0 0 0 1.73v20.54A1.75 1.75 0 0 0 1.77 24h20.45A1.75 1.75 0 0 0 24 22.27V1.73A1.75 1.75 0 0 0 22.22 0z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="category.html?cat=gift-hampers">Gift Hampers</a></li>
+            <li><a href="category.html?cat=pr-boxes">PR Boxes</a></li>
+            <li><a href="category.html?cat=food-packaging">Food Packaging</a></li>
+            <li><a href="category.html?cat=apparel-packaging">Apparel Packaging</a></li>
+            <li><a href="category.html?cat=jewelry-packaging">Jewelry Packaging</a></li>
+            <li><a href="category.html?cat=brand-tags">Brand Tags</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="index.html#process">How It Works</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Return Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ParcelPlay. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart (<span id="cartItemCount">0</span>)</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><h4>Your cart is empty</h4><p>Explore our collections.</p></div>
+      <div id="cartItems"></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total"><span class="cart-total-label">Subtotal</span><span class="cart-total-value" id="cartTotal">₹0</span></div>
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;">Request Quote</a>
+    </div>
+  </div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span id="toastMessage"></span></div>
+
+  <script src="app.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('successMessage').classList.add('show');
+      if (typeof showToast === 'function') {
+        showToast('Quote request submitted successfully!');
+      }
+    }
+  </script>
+</body>
+</html>

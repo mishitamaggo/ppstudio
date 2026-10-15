@@ -1,0 +1,33 @@
+# robots.txt for Parcel Play (parcelplay.in)
+User-agent: *
+Allow: /
+
+# Allow AI Search & Generative Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap & LLM summary
+Sitemap: https://parcelplay.in/sitemap.xml
+# llms.txt standard for AI Agents
+# https://parcelplay.in/llms.txt
